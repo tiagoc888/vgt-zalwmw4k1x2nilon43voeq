@@ -6,8 +6,8 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <title>Natal na Aldeia · private preview · Vinogrande</title>
-<!-- pack-l CSS 93019e28 (Jogar stacking). data-vga prevents the shell injecting assets/vg-aaa.css?v=20261125m2 (the shared a0ffa7f6 file used by other games). -->
-<link rel="stylesheet" href="assets/vg-aaa-aldeia.css?v=93019e28" data-vga="1">
+<!-- pack-p CSS 58e2198b (pack-n 93019e28 + align-content:start for AL-L2). data-vga prevents the shell injecting shared assets/vg-aaa.css (a0ffa7f6, used by other games). -->
+<link rel="stylesheet" href="assets/vg-aaa-aldeia.css?v=58e2198b" data-vga="1">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%;}
@@ -26,13 +26,13 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">work in progress</span>
-  <span class="pv-note">Sunday 29 Nov re-gate after Maria NO on 06d2924e. Shell 20261125m2 (pack-l + Renault 4L / poster / gate). Game 50559aa8. Not published. Prize codes are fake (TEST only).</span>
+  <span class="pv-note">f1082c31 re-gate after Maria NO for Sunday. Shell 20261125p on Golpe pack-n (Renault 4L / poster / gate). Game 2ef3c0ed. VGA_PUB stays ['vindima','golpe']. Not published. Prize codes are fake (TEST only); TEST-ALDEIA-* only with ?vgpreview=1.</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
 <script src="assets/vg-aaa-aldeia-poster-data.js?v=c4a1bd53"></script>
-<!-- Learn first: exposes window.VGA_PUB (still ['vindima'] only) and window.vgGameFor; honors ?vgclock=. -->
-<script src="assets/vg-learn-aldeia.js?v=b9c0cfa8"></script>
+<!-- Learn first: exposes window.VGA_PUB (still ['vindima','golpe'] only) and window.vgGameFor; honors ?vgclock=. -->
+<script src="assets/vg-learn-aldeia.js?v=cba72cf8"></script>
 <script>
 (function(){
   var q = new URLSearchParams(location.search);
@@ -40,17 +40,17 @@
   if (L !== 'en' && L !== 'es') L = 'pt';
   window.__VGA_LANG = L;
   document.documentElement.lang = L;
-  /* Repo assets (engine/phys already on this preview repo). Not the old supabase shell 111aff67, not live ?v=mbee4/m2. */
+  /* Repo assets (engine/phys already on this preview repo). Not the old supabase shell 111aff67, not live ?v=mbee4/m2/n/p until written. */
   window.__VGA_BASE = 'assets/';
   window.__VGA_SRC = window.__VGA_SRC || {};
-  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia.js?v=50559aa8';
+  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia.js?v=2ef3c0ed';
   window.__VGA_PRIZE_MOCK = function(id, stars){
     window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
     var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
     return p ? {ok:true, pct:p, code:'VG-PREVIEW'+p+'-TEST', ends:'2026-12-24T23:59:59Z'} : {ok:true, pct:0, code:null};
   };
   if (q.get('ready')) window.VG_READY = q.get('ready').split(',');
-  /* TEST hook only: mutate the same VGA_PUB array learn exposed. Pack file stays ['vindima']. */
+  /* TEST hook only: mutate the same VGA_PUB array learn exposed. Pack file stays ['vindima','golpe']. */
   if (q.get('pub') && window.VGA_PUB && window.VGA_PUB.push) {
     q.get('pub').split(',').forEach(function(id){
       id = (id || '').trim();
