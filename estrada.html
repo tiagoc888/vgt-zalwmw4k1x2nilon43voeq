@@ -6,7 +6,9 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <title>Estrada do Douro · private preview · Vinogrande</title>
-<link rel="stylesheet" href="assets/vg-aaa.css?v=a0ffa7f6">
+<!-- Live css 93019e28 under an Estrada-only name. data-vga prevents the shell injecting shared assets/vg-aaa.css (a0ffa7f6, used by other games). -->
+<link rel="stylesheet" href="assets/vg-aaa-estrada.css?v=93019e28" data-vga="1">
+<link rel="stylesheet" href="assets/vg-save-estrada.css?v=3b4cb554">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%;}
@@ -25,24 +27,37 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">in development</span>
-  <span class="pv-note">Re-gate after 7e51e8ce. Game 7a29b070 (Continuar uses the live vg-save.js API: startChoice if nextStop>0, cb is the save object; va/persist writes cp+points and runs after delivered is counted; resume rebuilds cargo with remove(delivered)+kill(lost)). E1/E2/E3 kept. Keeps vg-aaa.css?v=a0ffa7f6. Not live. Open with ?vgpreview=1. Prize codes in this preview are fake.</span>
+  <span class="pv-note">Re-gate after 393725e8. Game 0f205028 (gauges inset ≥16px, wider level Krohn pull-off, camera clamp, Joaquim bubble ≥8px from 🍾). Pack-n shell/learn + live css 93019e28. Not live. Open with ?vgpreview=1. Prize codes in this preview are fake.</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
+<script src="assets/vg-save-estrada.js?v=f6aa440b"></script>
+<script src="assets/vg-learn-estrada.js?v=a16071b4"></script>
 <script>
 (function(){
-  window.__VGA_LANG = new URLSearchParams(location.search).get('lang') || 'pt';
-  document.documentElement.lang = window.__VGA_LANG;
+  var q = new URLSearchParams(location.search);
+  var L = (q.get('lang') || 'pt').slice(0,2).toLowerCase();
+  if (L !== 'en' && L !== 'es') L = 'pt';
+  window.__VGA_LANG = L;
+  document.documentElement.lang = L;
   window.__VGA_ENGINE = 'assets/vg-aaa-engine.js';
   window.__VGA_PHYS = 'assets/vg-aaa-phys.js';
-  window.__VGA_BASE = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/';
-  window.__VGA_SRC = { estrada: 'assets/vg-aaa-g-estrada.js' };
+  window.__VGA_BASE = 'assets/';
+  window.__VGA_SRC = window.__VGA_SRC || {};
+  window.__VGA_SRC.estrada = 'assets/vg-aaa-g-estrada.js?v=0f205028';
   window.__VG_PREVIEW = 1;
   window.__VGA_PRIZE_MOCK = function(id, stars){
     window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
     var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
     return p ? {ok:true, pct:p, code:'VG-PREVIEW'+p+'-TEST', ends:'2026-12-24T23:59:59Z'} : {ok:true, pct:0, code:null};
   };
+  if (q.get('ready')) window.VG_READY = q.get('ready').split(',');
+  if (q.get('pub') && window.VGA_PUB && window.VGA_PUB.push) {
+    q.get('pub').split(',').forEach(function(id){
+      id = (id || '').trim();
+      if (id && window.VGA_PUB.indexOf(id) < 0) window.VGA_PUB.push(id);
+    });
+  }
   document.addEventListener('click', function(e){
     var a = e.target && e.target.closest && e.target.closest('a');
     if (!a) return;
@@ -58,7 +73,7 @@
     }
   }, true);
   var s = document.createElement('script');
-  s.src = 'assets/vg-aaa-prize-de807c55.js';
+  s.src = 'assets/vg-aaa-estrada-shell.js?v=8a0e9924';
   s.onload = function(){
     var h = document.createElement('div');
     h.className = 'vgq-host';
