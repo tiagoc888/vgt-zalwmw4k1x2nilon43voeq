@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "note": "Read at load by VGSave.loadWeekly(). Times are Europe/Lisbon wall time. Swap the special by editing this file (later: theme asset or metaobject). Product handles are real store handles from src/products.json; check BF prices before publishing.",
+  "specials": [
+    {
+      "id": "bf2026",
+      "startsAt": "2026-11-23T00:00",
+      "endsAt": "2026-12-03T00:00",
+      "title": {
+        "pt": "Black Friday na Adega",
+        "en": "Black Friday in the Cellar",
+        "es": "Black Friday en la Bodega"
+      },
+      "blurb": {
+        "pt": "Uma semana em preto e dourado: uma missão especial em cada jogo, a ensinar o que faz um grande Porto ou Douro.",
+        "en": "A week in black and gold: one special mission in every game, teaching what makes a great Port or Douro wine.",
+        "es": "Una semana en negro y oro: una misión especial en cada juego, enseñando qué hace grande a un Oporto o un Duero."
+      },
+      "theme": {
+        "palette": {
+          "bg": "#0d0b09",
+          "panel": "#17130e",
+          "gold": "#c9a24b",
+          "goldHi": "#f1dc9c",
+          "ink": "#f5ecd8"
+        },
+        "decor": "bf-gold-ribbon",
+        "decorNote": "thin gold ribbon + wax-seal 'BF' tag on menus; no lights, no spinning, no casino cues"
+      },
+      "rewardNote": {
+        "pt": "Os códigos dos jogos não acumulam com outros descontos: só funcionam em encomendas sem outro desconto (portes grátis permitidos). Máx. 10%; 15% só para a melhor pontuação, muito raro.",
+        "en": "Game codes don’t combine with other discounts: they only work on orders with no other discount (free delivery allowed). Max 10%; 15% only for the very best score, very rare.",
+        "es": "Los códigos de los juegos no se combinan con otros descuentos: solo funcionan en pedidos sin otro descuento (envío gratis permitido). Máx. 10%; 15% solo para la mejor puntuación, muy raro."
+      },
+      "games": {
+        "vindima": {
+          "look": "Golden-hour Douro with black-and-gold bunting on the quinta, a gold-sealed 'Reserva' crate by the lagar.",
+          "mission": {
+            "id": "bf_reserva",
+            "pt": "Leva a caixa Reserva selada ao Sr. Manel e descobre porque um Reserva estagia mais tempo.",
+            "en": "Take the sealed Reserva crate to Sr. Manel and learn why a Reserva ages longer.",
+            "es": "Lleva la caja Reserva sellada al Sr. Manel y descubre por qué un Reserva envejece más."
+          },
+          "decor": [
+            "bunting-black-gold",
+            "crate-reserva-sealed"
+          ],
+          "banner": {
+            "pt": "Semana Black Friday",
+            "en": "Black Friday week",
+            "es": "Semana Black Friday"
+          },
+          "bonus": {
+            "pt": "+500 pontos pela missão especial",
+            "en": "+500 points for the special mission",
+            "es": "+500 puntos por la misión especial"
+          },
+          "products": [
+            "quinta-do-pessegueiro-reserva-tinto-2023",
+            "pack-quinta-do-pessegueiro-reserva-a-elegancia-do-douro-em-seis-garrafas"
+          ]
+        },
+        "brinde": {
+          "look": "Midnight terrace in black velvet with warm gold candle-light; the toast flutes get a gold rim.",
+          "mission": {
+            "id": "bf_bubbles",
+            "pt": "Serve o espumante à temperatura certa (6–8 °C) e descobre o método clássico.",
+            "en": "Serve the sparkling wine at the right temperature (6–8 °C) and discover the traditional method.",
+            "es": "Sirve el espumoso a la temperatura justa (6–8 °C) y descubre el método tradicional."
+          },
+          "decor": [
+            "gold-rim-flutes",
+            "candles-warm"
+          ],
+          "banner": {
+            "pt": "Brinde Black Friday",
+            "en": "Black Friday toast",
+            "es": "Brindis Black Friday"
+          },
+          "bonus": {
+            "pt": "+300 pontos",
+            "en": "+300 points",
+            "es": "+300 puntos"
+          },
+          "products": [
+            "murganheira-vintage-2016-estrutura-elegancia-e-frescura-sublime",
+            "espumante-campolargo-rose-pinot-noir"
+          ]
+        },
+        "magnata": {
+          "look": "The farm at dusk with black-lacquered barrels and gold stencils; a 'Vintage' cellar door opens for the week.",
+          "mission": {
+            "id": "bf_vintage",
+            "pt": "Abre a cave Vintage: aprende porque só os melhores anos são declarados Vintage.",
+            "en": "Open the Vintage cellar: learn why only the best years are declared Vintage.",
+            "es": "Abre la bodega Vintage: aprende por qué solo los mejores años se declaran Vintage."
+          },
+          "decor": [
+            "barrels-black-gold",
+            "vintage-door"
+          ],
+          "banner": {
+            "pt": "Cave Black Friday",
+            "en": "Black Friday cellar",
+            "es": "Bodega Black Friday"
+          },
+          "bonus": {
+            "pt": "+1 barril de ouro",
+            "en": "+1 gold barrel",
+            "es": "+1 barril de oro"
+          },
+          "products": [
+            "grahams-the-stone-terraces-vintage-port-2016-2027",
+            "quinta-do-pessegueiro-porto-vintage-2021"
+          ]
+        },
+        "golpe": {
+          "look": "Cellar heist lit in low gold; the target is a black-boxed Colheita 1957 (owned by run JC-8).",
+          "mission": {
+            "id": "bf_colheita",
+            "pt": "Encontra o Colheita 1957 e descobre o que significa a data de colheita num Porto.",
+            "en": "Find the 1957 Colheita and learn what the harvest date means on a Port.",
+            "es": "Encuentra el Colheita 1957 y descubre qué significa la fecha de cosecha en un Oporto."
+          },
+          "decor": [
+            "gold-spotlights"
+          ],
+          "products": [
+            "krohn-colheita-porto-1957",
+            "quinta-do-pessegueiro-porto-colheita-2012"
+          ]
+        },
+        "estrada": {
+          "look": "N222 road at night with gold mile markers (owned by run JC-8).",
+          "mission": {
+            "id": "bf_rota",
+            "pt": "Entrega a garrafa na quinta certa e aprende as 3 sub-regiões do Douro.",
+            "en": "Deliver the bottle to the right quinta and learn the Douro’s 3 sub-regions.",
+            "es": "Entrega la botella en la quinta correcta y aprende las 3 subregiones del Duero."
+          },
+          "decor": [
+            "gold-mile-markers"
+          ],
+          "products": [
+            "raposinha-tinto-2025",
+            "quinta-do-pessegueiro-reserva-branco-2024"
+          ]
+        },
+        "aldeia": {
+          "look": "Winter village with black-and-gold ribbons on the doors (owned by run JC-7).",
+          "mission": {
+            "id": "bf_presente",
+            "pt": "Escolhe o presente certo para cada vizinho e aprende a combinar Porto com sobremesas.",
+            "en": "Pick the right gift for each neighbour and learn to pair Port with desserts.",
+            "es": "Elige el regalo adecuado para cada vecino y aprende a maridar Oporto con postres."
+          },
+          "decor": [
+            "door-ribbons-gold"
+          ],
+          "products": [
+            "pack-natal-brinde-porto-2-garrafas",
+            "pack-natal-porto-10-anos-vista-alegre-kopke-2-garrafas"
+          ]
+        },
+        "imperio": {
+          "look": "Gaia lodges at golden hour with a thin gold ribbon and a wax-seal BF tag on Casa Barbosa. No lights, no casino cues.",
+          "mission": {
+            "id": "bf_selo",
+            "pt": "Apresenta o Colheita recuperado e aprende porque a data no rótulo é o ano da colheita, e porque o Porto envelhecia nas caves de Gaia.",
+            "en": "Present the recovered Colheita and learn why the date on the label is the harvest year, and why Port aged in the Gaia lodges.",
+            "es": "Presenta el Colheita recuperado y aprende por qué la fecha de la etiqueta es el año de la cosecha, y por qué el Oporto envejecía en las bodegas de Gaia."
+          },
+          "decor": [
+            "gold-ribbon",
+            "wax-seal-bf"
+          ],
+          "banner": {
+            "pt": "Semana Black Friday",
+            "en": "Black Friday week",
+            "es": "Semana Black Friday"
+          },
+          "bonus": {
+            "pt": "+500 pontos pela missão especial",
+            "en": "+500 points for the special mission",
+            "es": "+500 puntos por la misión especial"
+          },
+          "products": [
+            "krohn-colheita-porto-1957",
+            "quinta-do-pessegueiro-porto-colheita-2012"
+          ]
+        }
+      }
+    }
+  ]
+}
