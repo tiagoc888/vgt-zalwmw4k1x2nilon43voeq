@@ -25,3 +25,6 @@
   .vga-pop__card .vga-note{font-size:10.5px;line-height:1.3}
   .vga-pop__card .vga-btn.vga-go{min-height:50px}
 }
+
+/* 25 Nov pack-p (Aldeia): pack poster against the body so stacked start/pop cards have no empty grid band (Maria AL-L2, 85px on Aldeia). align-content:start; does not change 2-column geometry. */
+.vga-card,.vga-pop__card{align-content:start}

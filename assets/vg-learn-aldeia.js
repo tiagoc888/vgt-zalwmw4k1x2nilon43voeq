@@ -13,7 +13,7 @@ function lvName(n){return T.lv[n>=13?3:n>=7?2:n>=3?1:0]}
 /* lesson strip: inline before footer, once per visit */
 var VGP_SRC=((d.currentScript&&d.currentScript.src)||((d.querySelector('script[src*="vg-learn.js"],link[href*="vg-learn"]')||{}).src)||'').replace('vg-learn.js','vg-play.js');
 var VGA_SEVEN=['vindima','golpe','estrada','imperio','brinde','magnata','aldeia'];
-var VGA_PUB=['vindima'];/* T 2026-11-25 03:38: only T-approved games of the seven. Immediate live state is Vindima only. Append an id here when T approves it. Lote and all non-seven / casino-style ids are out. No fallback. */
+var VGA_PUB=['vindima','golpe'];/* T 2026-11-25 20:21: Vindima + Golpe (Thu 26 from 00:05 Lisbon). WEEK already maps 11-26 to golpe; Wednesday stays Vindima. Do not use ['golpe'] alone before midnight. Aldeia stays unpublished. */
 function vgLisDay(){try{var nowD=new Date(),qv=/[?&]vgclock=([^&#]*)/.exec(location.search);if(qv){var v=decodeURIComponent(qv[1].replace(/\+/g,' ')),inst=/[zZ]|[+\-]\d\d:?\d\d$/.test(v)?Date.parse(v):NaN;if(!isFinite(inst)){var vm=/^(\d{4})-(\d\d)-(\d\d)(?:[T ](\d\d):(\d\d))?/.exec(v);if(vm)inst=Date.UTC(+vm[1],+vm[2]-1,+vm[3],+(vm[4]||12),+(vm[5]||0))}if(isFinite(inst))nowD=new Date(inst)}var f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Lisbon',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(nowD),o={};for(var i=0;i<f.length;i++)o[f[i].type]=f[i].value;if(o.year&&o.month&&o.day)return new Date(+o.year,+o.month-1,+o.day,12)}catch(e){}return new Date()}
 function vgWeekId(DY){var y=DY.getFullYear(),m=DY.getMonth()+1,d=DY.getDate(),key=y+'-'+(m<10?'0':'')+m+'-'+(d<10?'0':'')+d;
 var WEEK={'2026-11-25':'vindima','2026-11-26':'golpe','2026-11-27':'estrada','2026-11-28':'imperio','2026-11-29':'aldeia','2026-11-30':'magnata'};
@@ -28,12 +28,12 @@ if(qv){try{pk=decodeURIComponent(qv[1])}catch(e){pk=qv[1]}pk=String(pk).replace(
 var gd=vgWeekId(vgLisDay());if(!gd||VGA_PUB.indexOf(gd)<0)return null;return gd}
 function vgpRun(ft,pk){if(!pk||VGA_PUB.indexOf(pk)<0)return;if(!VGP_SRC){var cs=d.querySelector('link[href*="vg-learn.css"]');if(cs)VGP_SRC=cs.href.replace('vg-learn.css','vg-play.js')}if(d.querySelector('.vgq-host'))return;var h=d.createElement('div');h.className='vgq-host';h.setAttribute('data-vga-game',pk);ft.appendChild(h);
 function pos(){if(ft.lastElementChild!==h)ft.appendChild(h)}var k=0,t=setInterval(function(){pos();if(++k>12)clearInterval(t)},500);
-var sx=d.createElement('script');sx.src=VGP_SRC.split('?')[0].replace('vg-play.js','vg-aaa.js')+'?v=1125m2';sx.async=true;
+var sx=d.createElement('script');sx.src=VGP_SRC.split('?')[0].replace('vg-play.js','vg-aaa.js')+'?v=1125p';sx.async=true;
 sx.onload=function(){if(W.VGAAA&&W.VGAAA.launch)W.VGAAA.launch(pk,{slot:h});else try{h.remove()}catch(e){}};
 sx.onerror=function(){try{h.remove()}catch(e){}};
 var lzx=function(){if(!sx.parentNode)d.head.appendChild(sx)};if(d.readyState==='complete')setTimeout(lzx,800);else W.addEventListener('load',function(){setTimeout(lzx,800)})}
 var W=window;
-W.VGA_PUB=VGA_PUB;/* expose allow-list for VGSave.gate; still ['vindima'] only until T/Maria approves the next game */
+W.VGA_PUB=VGA_PUB;/* expose allow-list for VGSave.gate; still ['vindima','golpe'] until T/Maria approves the next game */
 W.vgGameFor=vgGameFor;/* rotation only; Sunday 29 is aldeia in the table, but gameFor stays null until aldeia is in VGA_PUB */
 ;(function(){if(d.getElementById('vga-empty-css'))return;var s=d.createElement('style');s.id='vga-empty-css';s.textContent='.vgq-host:empty,.vgq-host:not([data-vga-game]){display:none!important;height:0!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden!important}';d.head.appendChild(s)})();
 function lesson(){var ft=d.querySelector('main#MainContent,main[role=main],main');if(!ft||d.querySelector('.vgl'))return;var pk=vgpPick();if(!pk)return;if(pk!=='lesson'){vgpRun(ft,pk);return}
