@@ -25,7 +25,7 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">in development</span>
-  <span class="pv-note">Re-gate build a98039a5 (Maria G1–G8 + M6/M7/M8). Shell prize patch de807c55 vendored as assets/vg-aaa-prize-de807c55.js (not live). Open with ?vgpreview=1. Prize codes in this preview are fake.</span>
+  <span class="pv-note">Re-gate after 33583982. Game e6063d35 (R1 observer + R3 skip vs keys + R4 fact delta). Prize shell 96b4fb42 (legal: up to 10% for a good score, 15% only for the best). Engine/phys/poster in assets/. Not live. Open with ?vgpreview=1. Prize codes in this preview are fake.</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
@@ -33,7 +33,10 @@
 (function(){
   window.__VGA_LANG = new URLSearchParams(location.search).get('lang') || 'pt';
   document.documentElement.lang = window.__VGA_LANG;
-  window.__VGA_BASE = 'assets/';
+  // Engine/phys: this SHA, assets/. Poster: same preview bucket, md5 45f42f2cc56142e870e4febc1f328c93.
+  window.__VGA_ENGINE = 'assets/vg-aaa-engine.js';
+  window.__VGA_PHYS = 'assets/vg-aaa-phys.js';
+  window.__VGA_BASE = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/';
   window.__VGA_SRC = { golpe: 'assets/vg-aaa-g-golpe.js' };
   window.__VG_PREVIEW = 1;
   window.__VGA_PRIZE_MOCK = function(id, stars){
