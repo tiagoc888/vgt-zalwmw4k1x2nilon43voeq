@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <title>O Golpe da Cave · private preview · Vinogrande</title>
-<link rel="stylesheet" href="https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/vg-aaa.css">
+<link rel="stylesheet" href="assets/vg-aaa.css">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%;}
@@ -25,15 +25,15 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">in development</span>
-  <span class="pv-note">Latest dist (907853e9). Preview. Not published. Prize codes in this preview are fake.</span>
+  <span class="pv-note">Re-gate build a98039a5 (Maria G1–G8 + M6/M7/M8). Shell prize patch de807c55 vendored as assets/vg-aaa-prize-de807c55.js (not live). Open with ?vgpreview=1. Prize codes in this preview are fake.</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
 <script>
 (function(){
-  window.__VGA_LANG = 'pt';
-  document.documentElement.lang = 'pt';
-  window.__VGA_BASE = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/';
+  window.__VGA_LANG = new URLSearchParams(location.search).get('lang') || 'pt';
+  document.documentElement.lang = window.__VGA_LANG;
+  window.__VGA_BASE = 'assets/';
   window.__VGA_SRC = { golpe: 'assets/vg-aaa-g-golpe.js' };
   window.__VG_PREVIEW = 1;
   window.__VGA_PRIZE_MOCK = function(id, stars){
@@ -56,7 +56,7 @@
     }
   }, true);
   var s = document.createElement('script');
-  s.src = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/vg-aaa.js';
+  s.src = 'assets/vg-aaa-prize-de807c55.js';
   s.onload = function(){
     var h = document.createElement('div');
     h.className = 'vgq-host';
