@@ -25,17 +25,18 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">work in progress</span>
-  <span class="pv-note">Sunday 29 Nov candidate, game md5 63c391f6. Not published. Prize codes in this preview are fake (TEST only).</span>
+  <span class="pv-note">Sunday 29 Nov candidate, game md5 725d38fb. Vintage 4L poster (no tuk-tuk). Not published. Prize codes in this preview are fake (TEST only).</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
+<script src="assets/vg-aaa-aldeia-poster-data.js?v=c4a1bd53"></script>
 <script>
 (function(){
   window.__VGA_LANG = 'pt';
   document.documentElement.lang = 'pt';
   window.__VGA_BASE = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/';
   window.__VGA_SRC = window.__VGA_SRC || {};
-  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia.js?v=63c391f6';
+  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia.js?v=725d38fb';
   window.__VGA_PRIZE_MOCK = function(id, stars){
     window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
     var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
@@ -55,6 +56,16 @@
       window.open('https://vinogrande.pt' + lang + m[2], '_blank', 'noopener');
     }
   }, true);
+  var POSTER = window.__VG_ALDEIA_POSTER || 'assets/vg-aaa-aldeia-poster.webp?v=c4a1bd53';
+  function retargetPoster(root){
+    (root || document).querySelectorAll('img').forEach(function(im){
+      var s = (im.getAttribute('src') || '') + ' ' + (im.src || '');
+      if (!/vg-aaa-aldeia-poster|aldeia-poster/.test(s) && !(/aldeia/.test(s) && /poster/.test(s))) return;
+      if (im.getAttribute('data-pv-poster') === '1') return;
+      im.setAttribute('data-pv-poster', '1');
+      im.src = POSTER;
+    });
+  }
   var s = document.createElement('script');
   s.src = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/vg-aaa.js';
   s.onload = function(){
@@ -63,6 +74,8 @@
     document.getElementById('MainContent').appendChild(h);
     if (window.vgAAA) window.vgAAA('aldeia', h);
     else if (window.VGAAA && window.VGAAA.launch) window.VGAAA.launch('aldeia', {host:h});
+    retargetPoster(h);
+    try { new MutationObserver(function(){ retargetPoster(h); }).observe(h, {subtree:true, childList:true, attributes:true, attributeFilter:['src']}); } catch (e) {}
   };
   s.onerror = function(){ document.getElementById('MainContent').innerHTML = '<p>Failed to load the game shell.</p>'; };
   document.head.appendChild(s);
