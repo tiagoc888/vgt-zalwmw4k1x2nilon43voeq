@@ -30,7 +30,7 @@
   </div>
   <div id="game"></div>
   <script>
-    window.__VG_PREVIEW = 1;
+    window.__VG_PREVIEW = 1;window.vgGameFor=function(iso){var w={"2026-11-25":"vindima","2026-11-26":"golpe","2026-11-27":"estrada","2026-11-28":"imperio","2026-11-29":"magnata"};if(w[iso])return w[iso];var p=(iso||"").split("-").map(Number);if(p.length<3||!p[0])return null;var wd=new Date(Date.UTC(p[0],p[1]-1,p[2])).getUTCDay();return["aldeia","magnata","estrada","vindima","golpe","brinde","imperio"][wd];};
     window.__VG_FONT_BASE = 'cdn';
     window.__VG_WEEKLY_URL = 'imperio/lib/vg-weekly.json';
   </script>
