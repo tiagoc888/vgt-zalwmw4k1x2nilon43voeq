@@ -6,7 +6,8 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <title>Natal na Aldeia · private preview · Vinogrande</title>
-<link rel="stylesheet" href="assets/vg-aaa.css?v=a0ffa7f6">
+<!-- pack-l CSS 93019e28 (Jogar stacking). data-vga prevents the shell injecting assets/vg-aaa.css?v=20261125m2 (the shared a0ffa7f6 file used by other games). -->
+<link rel="stylesheet" href="assets/vg-aaa-aldeia.css?v=93019e28" data-vga="1">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%;}
@@ -25,23 +26,37 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">work in progress</span>
-  <span class="pv-note">Sunday 29 Nov candidate, game md5 725d38fb. Vintage 4L poster (no tuk-tuk). Not published. Prize codes in this preview are fake (TEST only).</span>
+  <span class="pv-note">Sunday 29 Nov re-gate after Maria NO on 06d2924e. Shell 20261125m2 (pack-l + Renault 4L / poster / gate). Game 50559aa8. Not published. Prize codes are fake (TEST only).</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
 <script src="assets/vg-aaa-aldeia-poster-data.js?v=c4a1bd53"></script>
+<!-- Learn first: exposes window.VGA_PUB (still ['vindima'] only) and window.vgGameFor; honors ?vgclock=. -->
+<script src="assets/vg-learn-aldeia.js?v=b9c0cfa8"></script>
 <script>
 (function(){
-  window.__VGA_LANG = 'pt';
-  document.documentElement.lang = 'pt';
-  window.__VGA_BASE = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/';
+  var q = new URLSearchParams(location.search);
+  var L = (q.get('lang') || 'pt').slice(0,2).toLowerCase();
+  if (L !== 'en' && L !== 'es') L = 'pt';
+  window.__VGA_LANG = L;
+  document.documentElement.lang = L;
+  /* Repo assets (engine/phys already on this preview repo). Not the old supabase shell 111aff67, not live ?v=mbee4/m2. */
+  window.__VGA_BASE = 'assets/';
   window.__VGA_SRC = window.__VGA_SRC || {};
-  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia.js?v=725d38fb';
+  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia.js?v=50559aa8';
   window.__VGA_PRIZE_MOCK = function(id, stars){
     window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
     var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
     return p ? {ok:true, pct:p, code:'VG-PREVIEW'+p+'-TEST', ends:'2026-12-24T23:59:59Z'} : {ok:true, pct:0, code:null};
   };
+  if (q.get('ready')) window.VG_READY = q.get('ready').split(',');
+  /* TEST hook only: mutate the same VGA_PUB array learn exposed. Pack file stays ['vindima']. */
+  if (q.get('pub') && window.VGA_PUB && window.VGA_PUB.push) {
+    q.get('pub').split(',').forEach(function(id){
+      id = (id || '').trim();
+      if (id && window.VGA_PUB.indexOf(id) < 0) window.VGA_PUB.push(id);
+    });
+  }
   document.addEventListener('click', function(e){
     var a = e.target && e.target.closest && e.target.closest('a');
     if (!a) return;
@@ -67,13 +82,14 @@
     });
   }
   var s = document.createElement('script');
-  s.src = 'https://wtrpbbqtgpzufnqhkvmv.supabase.co/storage/v1/object/public/vgt-zalwmw4k1x2nilon43voeq/assets/vg-aaa.js';
+  s.src = 'assets/vg-aaa-aldeia-shell.js?v=72bb73b5';
   s.onload = function(){
     var h = document.createElement('div');
     h.className = 'vgq-host';
     document.getElementById('MainContent').appendChild(h);
     if (window.vgAAA) window.vgAAA('aldeia', h);
-    else if (window.VGAAA && window.VGAAA.launch) window.VGAAA.launch('aldeia', {host:h});
+    else if (window.VGAAA && window.VGAAA.open) window.VGAAA.open('aldeia', {host:h});
+    else if (window.VGAAA && window.VGAAA.launch) window.VGAAA.launch('aldeia', {slot:h});
     retargetPoster(h);
     try { new MutationObserver(function(){ retargetPoster(h); }).observe(h, {subtree:true, childList:true, attributes:true, attributeFilter:['src']}); } catch (e) {}
   };
