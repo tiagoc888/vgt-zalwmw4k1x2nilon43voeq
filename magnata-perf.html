@@ -26,7 +26,7 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">work in progress</span>
-  <span class="pv-note">Magnata pack-v build 93a8303f = d83184ec perf governor + bundled VGSave startChoice B1 fix (pointerdown/up, canvas pointer-events none while Continuar/Novo jogo is open, VERSION 2). Game end is score-only. Tiers ★ 1500 / ★★ 5% 3400 / ★★★ 10% 5400, honestly reached on real input (390 touch 6075, 1280 mouse 6897). Never 15%. Reuses existing pack-u shell/learn/css copies already on this repo. Not live. Prize codes are fake (TEST only); VG-PREVIEW*-TEST only with ?vgpreview=1.</span>
+  <span class="pv-note">Magnata pack-v2 build 652775d8 = pack-v 93a8303f + exact caef045b VGSave (playable() re-reads VGA_PUB at call time) + no cache-loss notice + toasts cleared on end. Letter-v shell 002d4d2c adds PT/EN/ES badge labels for every game (fixes raw ids such as five-orders / grand-cru / all-grapes, and Estrada once v is live). Game end is score-only. Tiers ★ 1500 / ★★ 5% 3400 / ★★★ 10% 5400, honestly reached on real input (390 touch 6689, 1280 mouse 5805). Never 15%. Not live. Prize codes are fake (TEST only); VG-PREVIEW*-TEST only with ?vgpreview=1.</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
@@ -43,7 +43,7 @@
   window.__VGA_ENGINE = 'assets/vg-aaa-engine.js';
   window.__VGA_PHYS = 'assets/vg-aaa-phys.js';
   window.__VGA_SRC = window.__VGA_SRC || {};
-  window.__VGA_SRC.magnata = 'assets/vg-aaa-g-magnata-perf.js?v=93a8303f';
+  window.__VGA_SRC.magnata = 'assets/vg-aaa-g-magnata-perf.js?v=652775d8';
   window.__VGA_PRIZE_MOCK = function(id, stars){
     window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
     var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
@@ -71,7 +71,7 @@
     }
   }, true);
   var s = document.createElement('script');
-  s.src = 'assets/vg-aaa-aldeia-shell.js?v=72bb73b5';
+  s.src = 'assets/vg-aaa-v-shell.js?v=002d4d2c';
   s.onload = function(){
     var h = document.createElement('div');
     h.className = 'vgq-host';
