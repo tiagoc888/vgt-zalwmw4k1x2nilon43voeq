@@ -26,7 +26,7 @@
 <div class="pv-bar">
   <strong>Private preview</strong>
   <span class="pv-tag">work in progress</span>
-  <span class="pv-note">Aldeia stable-perf build dc407609 = pack-p game 2ef3c0ed + perf governor (phones: low-tier scenery but all product displays + toon Joaquim kept, no shadows, no bloom, DPR cap 1.25; desktop high keeps shadows + bloom, tiny props stop casting shadows; adaptive step-down; HUD write de-dupe; stage-size cache). Same missions, UI, prizes. Pack-p shell/learn/css copies. Not live. Prize codes are fake (TEST only); TEST-ALDEIA-* only with ?vgpreview=1.</span>
+  <span class="pv-note">Aldeia pack-u2 build 82955d2c = pack-u dc407609 + Maria NO fixes (1280 Continuar/Novo jogo: pointerdown/up on the buttons and canvas pointer-events none while the start choice is open; 390 Ver resultado: close on pointerup/click + preventDefault + a short capture swallow so the tap cannot ghost onto the shell newsletter link; cargo pill data-vgh=left, max-width min(200px,46vw), nowrap, no slide-in). Letter u and pack-u shell/learn/css unchanged. Same missions, UI, prizes (max 10%). Not live. Prize codes are fake (TEST only); VG-PREVIEW*-TEST only with ?vgpreview=1.</span>
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"></main>
@@ -43,7 +43,7 @@
   /* Repo assets (engine/phys already on this preview repo). Not the old supabase shell 111aff67, not live ?v=mbee4/m2/n/p until written. */
   window.__VGA_BASE = 'assets/';
   window.__VGA_SRC = window.__VGA_SRC || {};
-  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia-perf.js?v=dc407609';
+  window.__VGA_SRC.aldeia = 'assets/vg-aaa-g-aldeia-perf.js?v=82955d2c';
   window.__VGA_PRIZE_MOCK = function(id, stars){
     window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
     var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
