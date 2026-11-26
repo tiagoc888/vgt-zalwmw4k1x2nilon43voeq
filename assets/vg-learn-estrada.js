@@ -13,7 +13,8 @@ function lvName(n){return T.lv[n>=13?3:n>=7?2:n>=3?1:0]}
 /* lesson strip: inline before footer, once per visit */
 var VGP_SRC=((d.currentScript&&d.currentScript.src)||((d.querySelector('script[src*="vg-learn.js"],link[href*="vg-learn"]')||{}).src)||'').replace('vg-learn.js','vg-play.js');
 var VGA_SEVEN=['vindima','golpe','estrada','imperio','brinde','magnata','aldeia'];
-var VGA_PUB=['vindima','golpe'];/* T 2026-11-25 20:21: Vindima + Golpe (Thu 26 from 00:05 Lisbon). WEEK already maps 11-26 to golpe; Wednesday stays Vindima. Do not use ['golpe'] alone before midnight. Aldeia stays unpublished. */
+var VGA_PUB=['vindima','golpe','estrada'];
+window.VGA_PUB=VGA_PUB;/* T 2026-11-25 20:21: Vindima + Golpe (Thu 26 from 00:05 Lisbon). WEEK already maps 11-26 to golpe; Wednesday stays Vindima. Do not use ['golpe'] alone before midnight. Aldeia stays unpublished. */
 function vgLisDay(){try{var f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Lisbon',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()),o={};for(var i=0;i<f.length;i++)o[f[i].type]=f[i].value;if(o.year&&o.month&&o.day)return new Date(+o.year,+o.month-1,+o.day,12)}catch(e){}return new Date()}
 function vgWeekId(DY){var y=DY.getFullYear(),m=DY.getMonth()+1,d=DY.getDate(),key=y+'-'+(m<10?'0':'')+m+'-'+(d<10?'0':'')+d;
 var WEEK={'2026-11-25':'vindima','2026-11-26':'golpe','2026-11-27':'estrada','2026-11-28':'imperio','2026-11-29':'aldeia','2026-11-30':'magnata'};
@@ -27,7 +28,7 @@ if(qv){try{pk=decodeURIComponent(qv[1])}catch(e){pk=qv[1]}pk=String(pk).replace(
 var gd=vgWeekId(vgLisDay());if(!gd||VGA_PUB.indexOf(gd)<0)return null;return gd}
 function vgpRun(ft,pk){if(!pk||VGA_PUB.indexOf(pk)<0)return;if(!VGP_SRC){var cs=d.querySelector('link[href*="vg-learn.css"]');if(cs)VGP_SRC=cs.href.replace('vg-learn.css','vg-play.js')}if(d.querySelector('.vgq-host'))return;var h=d.createElement('div');h.className='vgq-host';h.setAttribute('data-vga-game',pk);ft.appendChild(h);
 function pos(){if(ft.lastElementChild!==h)ft.appendChild(h)}var k=0,t=setInterval(function(){pos();if(++k>12)clearInterval(t)},500);
-var sx=d.createElement('script');sx.src=VGP_SRC.split('?')[0].replace('vg-play.js','vg-aaa.js')+'?v=1125n';sx.async=true;
+var sx=d.createElement('script');sx.src=VGP_SRC.split('?')[0].replace('vg-play.js','vg-aaa.js')+'?v=1125s';sx.async=true;
 sx.onload=function(){if(W.VGAAA&&W.VGAAA.launch)W.VGAAA.launch(pk,{slot:h});else try{h.remove()}catch(e){}};
 sx.onerror=function(){try{h.remove()}catch(e){}};
 var lzx=function(){if(!sx.parentNode)d.head.appendChild(sx)};if(d.readyState==='complete')setTimeout(lzx,800);else W.addEventListener('load',function(){setTimeout(lzx,800)})}
