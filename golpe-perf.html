@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>O Golpe da Cave · stable-perf preview · Vinogrande</title>
+<!-- Live css 93019e28 under an Estrada-only name. data-vga prevents the shell injecting shared assets/vg-aaa.css (a0ffa7f6, used by other games). -->
+<link rel="stylesheet" href="assets/vg-aaa-estrada.css?v=93019e28" data-vga="1">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%;}
+  .pv-bar{position:sticky;top:0;z-index:80;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    padding:8px 12px;background:#2a020c;color:#e8cf88;font-size:12px;line-height:1.3;
+    border-bottom:1px solid rgba(232,207,136,.35);}
+  .pv-bar a{color:#e8cf88}
+  .pv-tag{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid #e8cf88;
+    text-transform:uppercase;letter-spacing:.04em;font-weight:600;font-size:10px;}
+  .pv-note{flex:1 1 180px;opacity:.9}
+  main{padding:8px 12px 24px;}
+  .vgq-host{min-height:70vh}
+</style>
+</head>
+<body>
+<div class="pv-bar">
+  <strong>Private preview</strong>
+  <span class="pv-tag">in development</span>
+  <span class="pv-note">Golpe stable-perf hotfix (pack-r). Game be84da96 = live d5064411 + perf governor: phones no bloom pass, DPR cap 1.25, adaptive step-down, no per-frame shader re-keying. Same missions, UI and prizes. Live pack-n shell 8a0e9924 + css 93019e28. Not live. Open with ?vgpreview=1. Prize codes are fake.</span>
+  <a href="index.html">All games</a>
+</div>
+<main id="MainContent"></main>
+<script src="assets/vg-learn-estrada.js?v=a16071b4"></script>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var L = (q.get('lang') || 'pt').slice(0,2).toLowerCase();
+  if (L !== 'en' && L !== 'es') L = 'pt';
+  window.__VGA_LANG = L;
+  document.documentElement.lang = L;
+  window.__VGA_ENGINE = 'assets/vg-aaa-engine.js';
+  window.__VGA_PHYS = 'assets/vg-aaa-phys.js';
+  window.__VGA_BASE = 'assets/';
+  window.__VGA_SRC = window.__VGA_SRC || {};
+  window.__VGA_SRC.golpe = 'assets/vg-aaa-g-golpe-perf.js?v=be84da96';
+  window.__VG_PREVIEW = 1;
+  window.__VGA_PRIZE_MOCK = function(id, stars){
+    window.__vgaClaims = (window.__vgaClaims || []).concat([{id:id, stars:stars}]);
+    var p = stars >= 3 ? 10 : stars >= 2 ? 5 : 0;
+    return p ? {ok:true, pct:p, code:'VG-PREVIEW'+p+'-TEST', ends:'2026-12-24T23:59:59Z'} : {ok:true, pct:0, code:null};
+  };
+  if (q.get('ready')) window.VG_READY = q.get('ready').split(',');
+  if (q.get('pub') && window.VGA_PUB && window.VGA_PUB.push) {
+    q.get('pub').split(',').forEach(function(id){
+      id = (id || '').trim();
+      if (id && window.VGA_PUB.indexOf(id) < 0) window.VGA_PUB.push(id);
+    });
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (/^https?:\/\/(www\.)?vinogrande\.(pt|es)/i.test(href)) return;
+    var m = href.match(/^(?:https?:\/\/[^/]+)?(\/(?:en|es)\/)?(\/products\/[^?#]+)/i)
+         || href.match(/^(\/(?:en|es))?(\/products\/[^?#]+)/i)
+         || href.match(/^(\/(?:en|es))?(\/discount\/[^?#]+)/i);
+    if (m) {
+      e.preventDefault();
+      var lang = (m[1] || '');
+      window.open('https://vinogrande.pt' + lang + m[2], '_blank', 'noopener');
+    }
+  }, true);
+  var s = document.createElement('script');
+  s.src = 'assets/vg-aaa-estrada-shell.js?v=8a0e9924';
+  s.onload = function(){
+    var h = document.createElement('div');
+    h.className = 'vgq-host';
+    document.getElementById('MainContent').appendChild(h);
+    if (window.vgAAA) window.vgAAA('golpe', h);
+    else if (window.VGAAA && window.VGAAA.launch) window.VGAAA.launch('golpe', {host:h});
+  };
+  s.onerror = function(){ document.getElementById('MainContent').innerHTML = '<p>Failed to load the game shell.</p>'; };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
