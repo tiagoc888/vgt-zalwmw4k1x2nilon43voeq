@@ -22,7 +22,7 @@
 <div class="pv-bar">
   <span class="pv-tag">work in progress</span>
   <strong>Private preview — live-perf 27 Nov, vg-hud fix (Part B).</strong>
-  <span id="pvinfo"></span> ?g=vindima|golpe|estrada|imperio|aldeia|magnata|brinde &amp; ?v=fix (patched games + shell 8e5fea59 ee=20261126c) or ?v=live (exact live 1126b bodies). Not live. Prize codes are fake (TEST only).
+  <span id="pvinfo"></span> ?g=vindima|golpe|estrada|imperio|aldeia|magnata|brinde &amp; ?v=c (1126c candidate: ONLY Império changed, d8815364; other games = live 1126b bodies; shell 8e5fea59), ?v=fix (Part B patched games (HOLD) + shell 8e5fea59 ee=20261126c) or ?v=live (exact live 1126b bodies). Not live. Prize codes are fake (TEST only).
 </div>
 <main id="MainContent"><div class="vgq-host" id="vgq"></div></main>
 <script src="assets/vg-learn-1126b-live.js?v=c2ef3294"></script>
@@ -34,7 +34,7 @@
   window.__VGA_LANG=L; document.documentElement.lang=L; window.__VG_PREVIEW=1;
   window.__VGA_BASE='assets/'; window.__VGA_ENGINE='assets/vg-aaa-engine.js'; window.__VGA_PHYS='assets/vg-aaa-phys.js';
   window.__VGA_SRC=window.__VGA_SRC||{};
-  if(G!=='imperio'||V!=='fix') window.__VGA_SRC[G]='assets/vg-aaa-g-'+G+(V==='c'?((G==='estrada'||G==='imperio')?'-c1127':'-hud1127'):V==='fix'?'-hud1127':'-live1126b')+'.js?v=SHA';
+  if(G!=='imperio'||V!=='fix') window.__VGA_SRC[G]='assets/vg-aaa-g-'+G+(V==='c'?(G==='imperio'?'-c1127':'-live1126b'):V==='fix'?'-hud1127':'-live1126b')+'.js?v=SHA';
   window.__VGA_PRIZE_MOCK=function(id,st){var p=st>=3?10:st>=2?5:0;return p?{ok:true,pct:p,code:'VG-PREVIEW'+p+'-TEST',ends:'2026-12-24T23:59:59Z'}:{ok:true,pct:0,code:null}};
   document.getElementById('pvinfo').textContent='game='+G+' variant='+V+' lang='+L+'.';
   var h=document.getElementById('vgq'); h.setAttribute('data-vga-game',G);
