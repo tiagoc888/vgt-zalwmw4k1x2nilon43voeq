@@ -22,7 +22,7 @@
 <div class="pv-bar">
   <span class="pv-tag">work in progress</span>
   <strong>Private preview — Brinde pack-z4 on 20261126b.</strong>
-  Game 3839f167: z3 3dc07692 + ve 150 s, auto-finish at 30 full, Brindar!/Toast!/¡Brindar! at ≥24 full (after all 3 sabrages), 3★ lowered to 12000 so 390 human-like runs can reach it. Phone perf unchanged (aa off, no composer/bloom/shadows, DPR 1.25, down-only governor). Shell dfa4b803 (ee=20261126b) and learn c2ef3294 unchanged. 1126a is already LIVE (563bf6ea / 561a5f6a). The 1126b bundle applies on that base: games first, then shell, learn last. Senhor Director’s OK required. Not live. Prize codes are fake (TEST only) with ?vgpreview=1.
+  Game 3839f167: z3 3dc07692 + ve 150 s, auto-finish at 30 full, Brindar!/Toast!/¡Brindar! at ≥24 full (after all 3 sabrages), 3★ lowered to 12000 so 390 human-like runs can reach it. Phone perf unchanged (aa off, no composer/bloom/shadows, DPR 1.25, down-only governor). Shell 498da037 (dfa4b803 with only brinde tiers 12500→12000, ee=20261126b). Learn c2ef3294 unchanged. 1126a is already LIVE (563bf6ea / 561a5f6a). The 1126b bundle applies on that base: games first, then shell, learn last. Senhor Director’s OK required. Not live. Prize codes are fake (TEST only) with ?vgpreview=1.
   <a href="index.html">All games</a>
 </div>
 <main id="MainContent"><div class="vgq-host" id="vgq" data-vga-game="brinde"></div></main>
@@ -42,7 +42,7 @@
   window.__VGA_SRC.brinde='assets/vg-aaa-g-brinde-z4.js?v=3839f167';
   window.__VGA_PRIZE_MOCK=function(id,st){var p=st>=3?10:st>=2?5:0;return p?{ok:true,pct:p,code:'VG-PREVIEW'+p+'-TEST',ends:'2026-12-24T23:59:59Z'}:{ok:true,pct:0,code:null}};
   var s=document.createElement('script');
-  s.src='assets/vg-aaa-1126b-shell.js?v=dfa4b803';
+  s.src='assets/vg-aaa-1126b-shell-z4tiers.js?v=498da037';
   s.onload=function(){
     var h=document.getElementById('vgq')||document.querySelector('.vgq-host');
     if(!h){h=document.createElement('div');h.className='vgq-host';h.id='vgq';h.setAttribute('data-vga-game','brinde');document.getElementById('MainContent').appendChild(h);}else if(!h.getAttribute('data-vga-game'))h.setAttribute('data-vga-game','brinde');

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Surpresa do dia · Brinde z4 shell tiers · preview</title>
+<link rel="stylesheet" href="assets/vg-aaa-aldeia.css?v=58e2198b" data-vga="1">
+<style>
+  html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%}
+  .pv-bar{padding:8px 12px;background:#2a020c;color:#e8cf88;font-size:12px;line-height:1.4;border-bottom:1px solid rgba(232,207,136,.35)}
+</style>
+</head>
+<body>
+<div class="pv-bar">Private preview — Fri 4 Dec «Surpresa do dia» (shell 498da037, brinde tiers 4500/9000/12000). Not live. Use ?vgclock=2026-12-04T10:00&vgapop=1&vgapopreset=1&lang=pt|en|es</div>
+<main id="MainContent"></main>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search);
+  var L=(q.get('lang')||'pt').slice(0,2).toLowerCase();
+  if(L!=='en'&&L!=='es') L='pt';
+  window.__VGA_LANG=L;
+  document.documentElement.lang=L;
+  window.__VG_PREVIEW=1;
+  window.__VGA_BASE='assets/';
+  window.__VGA_ENGINE='assets/vg-aaa-engine.js';
+  window.__VGA_PHYS='assets/vg-aaa-phys.js';
+  window.__VGA_SRC=window.__VGA_SRC||{};
+  window.__VGA_SRC.brinde='assets/vg-aaa-g-brinde-z4.js?v=3839f167';
+})();
+</script>
+<script src="assets/vg-aaa.js?v=498da037"></script>
+<script>
+(function(){
+  function go(){
+    if(!(window.VGAAA&&VGAAA.launch)) return false;
+    var h=document.getElementById('vgq')||document.querySelector('.vgq-host');
+    if(!h){
+      h=document.createElement('div');
+      h.className='vgq-host';
+      h.id='vgq';
+      h.setAttribute('data-vga-game','brinde');
+      document.getElementById('MainContent').appendChild(h);
+    }
+    VGAAA.launch('brinde',{slot:h});
+    return true;
+  }
+  if(!go()) window.addEventListener('vgaaa-ready', go);
+})();
+</script>
+</body>
+</html>
