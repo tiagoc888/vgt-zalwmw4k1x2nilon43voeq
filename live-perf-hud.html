@@ -30,16 +30,16 @@
 (function(){
   var q=new URLSearchParams(location.search);
   var L=(q.get('lang')||'pt').slice(0,2).toLowerCase(); if(L!=='en'&&L!=='es') L='pt';
-  var G=(q.get('g')||'estrada').toLowerCase(), V=q.get('v')==='live'?'live':'fix';
+  var G=(q.get('g')||'estrada').toLowerCase(), V=q.get('v')==='live'?'live':(q.get('v')==='c'?'c':'fix');
   window.__VGA_LANG=L; document.documentElement.lang=L; window.__VG_PREVIEW=1;
   window.__VGA_BASE='assets/'; window.__VGA_ENGINE='assets/vg-aaa-engine.js'; window.__VGA_PHYS='assets/vg-aaa-phys.js';
   window.__VGA_SRC=window.__VGA_SRC||{};
-  if(G!=='imperio') window.__VGA_SRC[G]='assets/vg-aaa-g-'+G+(V==='fix'?'-hud1127':'-live1126b')+'.js?v=SHA';
+  if(G!=='imperio'||V!=='fix') window.__VGA_SRC[G]='assets/vg-aaa-g-'+G+(V==='c'?((G==='estrada'||G==='imperio')?'-c1127':'-hud1127'):V==='fix'?'-hud1127':'-live1126b')+'.js?v=SHA';
   window.__VGA_PRIZE_MOCK=function(id,st){var p=st>=3?10:st>=2?5:0;return p?{ok:true,pct:p,code:'VG-PREVIEW'+p+'-TEST',ends:'2026-12-24T23:59:59Z'}:{ok:true,pct:0,code:null}};
   document.getElementById('pvinfo').textContent='game='+G+' variant='+V+' lang='+L+'.';
   var h=document.getElementById('vgq'); h.setAttribute('data-vga-game',G);
   var s=document.createElement('script');
-  s.src=V==='fix'?'assets/vg-aaa-1126c-shell.js?v=8e5fea59':'assets/vg-aaa-1126b-shell-live.js?v=498da037';
+  s.src=V!=='live'?'assets/vg-aaa-1126c-shell.js?v=8e5fea59':'assets/vg-aaa-1126b-shell-live.js?v=498da037';
   s.onload=function(){ if(window.vgAAA) window.vgAAA(G,h); else if(window.VGAAA&&VGAAA.launch) VGAAA.launch(G,{host:h}); };
   s.onerror=function(){ document.getElementById('MainContent').innerHTML='<p>Failed to load shell.</p>'; };
   document.head.appendChild(s);
