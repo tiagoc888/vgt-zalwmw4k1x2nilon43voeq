@@ -1,0 +1,10 @@
+
+/* 1126e typography: never split a word across lines; titles balance; fluid size; short words ("do","de","na") stay glued to the next word */
+.vga-title h1{font-size:clamp(26px,9vw,84px);overflow-wrap:normal;word-break:normal;hyphens:none;-webkit-hyphens:none;text-wrap:balance;line-height:1.04}
+.vga-title h1 span.vga-wd{display:inline-block;white-space:nowrap;opacity:1;transform:none;animation:none}
+.vga-h,.vga-teaser .vga-h,.vga-eb,.vga-title__p,.vga-card h2,.vga-card h3,.vga-modal h2,.vga-modal h3,.vga-pop h2,.vga-pop h3{overflow-wrap:normal;word-break:normal;hyphens:none;-webkit-hyphens:none;text-wrap:balance}
+.vga-title__p{text-wrap:pretty}
+
+/* 1126f in-game title: never cut a word ("Douro" -> "Dou…"); wrap at spaces on up to 2 lines, fluid size on phones */
+.vga-top__t b{white-space:normal;overflow-wrap:normal;word-break:normal;hyphens:none;-webkit-hyphens:none;text-wrap:balance;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;text-overflow:clip;line-height:1.08}
+@media (max-width:520px){.vga-top__t b{font-size:clamp(14px,4.3vw,19px)}}
