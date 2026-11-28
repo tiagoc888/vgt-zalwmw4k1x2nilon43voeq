@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Live-perf vg-hud A/B preview · Vinogrande</title>
+<!-- Reuses pack-u CSS already on this preview repo (58e2198b). data-vga prevents the shell injecting shared assets/vg-aaa.css. -->
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;background:#1a080c;color:#f3e6d0;font-family:Jost,system-ui,sans-serif;min-height:100%}
+  .pv-bar{padding:8px 12px;background:#2a020c;color:#e8cf88;font-size:12px;line-height:1.4;border-bottom:1px solid rgba(232,207,136,.35)}
+  .pv-bar a{color:#e8cf88}
+  .pv-tag{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid #e8cf88;text-transform:uppercase;font-weight:600;font-size:10px;margin-right:8px}
+  main{padding:8px 12px 24px}
+  @media (max-width:640px){.pv-bar{font-size:10px;max-height:76px;overflow:auto;line-height:1.3;padding:6px 8px}}
+
+</style>
+</head>
+<body>
+<div class="pv-bar">
+  <span class="pv-tag">work in progress</span>
+  <strong>Private preview — Império 1126e (28 Nov): 1126d fixes + wine-fact card auto-hide/close + title typography. ?v=e = candidate 1126e, ?v=c = current live 1126c.</strong>
+  <span id="pvinfo"></span> ?g=vindima|golpe|estrada|imperio|aldeia|magnata|brinde &amp; ?v=c (1126c candidate: ONLY Império changed, d8815364; other games = live 1126b bodies; shell 8e5fea59), ?v=fix (Part B patched games (HOLD) + shell 8e5fea59 ee=20261126c) or ?v=live (exact live 1126b bodies). Not live. Prize codes are fake (TEST only).
+</div>
+<main id="MainContent"><div class="vgq-host" id="vgq"></div></main>
+<script src="assets/vg-learn-1126b-live.js?v=c2ef3294"></script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search);
+  var L=(q.get('lang')||'pt').slice(0,2).toLowerCase(); if(L!=='en'&&L!=='es') L='pt';
+  var G=(q.get('g')||'estrada').toLowerCase(), V=q.get('v')==='live'?'live':(q.get('v')==='e'?'e':(q.get('v')==='c'?'c':(q.get('v')==='d'?'d':'fix')));
+  var cl=document.createElement('link');cl.rel='stylesheet';cl.setAttribute('data-vga','1');cl.href=V==='e'?'assets/vg-aaa.E.css':'assets/vg-aaa-1126c-live.css';document.head.appendChild(cl);
+  window.__VGA_LANG=L; document.documentElement.lang=L; window.__VG_PREVIEW=1;
+  window.__VGA_BASE='assets/'; window.__VGA_ENGINE='assets/vg-aaa-engine.js'; window.__VGA_PHYS='assets/vg-aaa-phys.js';
+  window.__VGA_SRC=window.__VGA_SRC||{};
+  if(G!=='imperio'||V!=='fix') window.__VGA_SRC[G]='assets/vg-aaa-g-'+G+(V==='e'?(G==='imperio'?'-e1128':'-live1126b'):V==='d'?(G==='imperio'?'-d1128':'-live1126b'):V==='c'?(G==='imperio'?'-c1127':'-live1126b'):V==='fix'?'-hud1127':'-live1126b')+'.js?v=SHA';
+  window.__VGA_PRIZE_MOCK=function(id,st){var p=st>=3?10:st>=2?5:0;return p?{ok:true,pct:p,code:'VG-PREVIEW'+p+'-TEST',ends:'2026-12-24T23:59:59Z'}:{ok:true,pct:0,code:null}};
+  document.getElementById('pvinfo').textContent='game='+G+' variant='+V+' lang='+L+'.';
+  var h=document.getElementById('vgq'); h.setAttribute('data-vga-game',G);
+  var s=document.createElement('script');
+  s.src=V==='e'?'assets/vg-aaa-1126e-shell.js?v=E':V==='d'?'assets/vg-aaa-1126d-shell.js?v=94d3d6fe':V!=='live'?'assets/vg-aaa-1126c-shell.js?v=8e5fea59':'assets/vg-aaa-1126b-shell-live.js?v=498da037';
+  s.onload=function(){ if(window.vgAAA) window.vgAAA(G,h); else if(window.VGAAA&&VGAAA.launch) VGAAA.launch(G,{host:h}); };
+  s.onerror=function(){ document.getElementById('MainContent').innerHTML='<p>Failed to load shell.</p>'; };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
